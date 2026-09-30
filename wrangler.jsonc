@@ -1,0 +1,12 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "link-registry",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-09-01",
+  "durable_objects": {
+    "bindings": [{ "name": "REGISTRY", "class_name": "Registry" }]
+  },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["Registry"] }],
+  "observability": { "enabled": true }
+  // LINK_TOKEN is a secret: `npx wrangler secret put LINK_TOKEN`. For local dev, put it in .dev.vars.
+}
